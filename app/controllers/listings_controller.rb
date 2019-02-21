@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.all
-
     @listings = @listings.where("lower(location_name) LIKE ?", "%#{params[:location_name].downcase}%") if params[:location_name]
   end
 
@@ -25,6 +24,15 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
   end
+
+  def auto_search
+    @location_name = Listing.search_location_name(params[:location_name])
+    respond_to do |format|
+      format.json { render json: @location_name }
+      format.js
+    end
+  end
+
 
   private
 
