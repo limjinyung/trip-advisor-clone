@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_072949) do
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "location_name"
     t.string "address"
     t.string "email"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_072949) do
     t.integer "ratings"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

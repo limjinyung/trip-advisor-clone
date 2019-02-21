@@ -1,6 +1,5 @@
-<p id=”notice”><%= notice %></p>
 <% if current_user %>
-  Logged in as <%= current_user.email %>.
+  Logged in as <%= current_user.username %>.
   <%= link_to "Log Out", logout_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or 
@@ -8,3 +7,12 @@
 <% end %>
 
 <h1>Listings</h1>
+
+<%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
+<hr>
+
+<% @listings.each do |l| %>
+    <%= l.address %>
+    <%= link_to "View Listings", user_listing_path(user_id: current_user.id, id: l.id) %>
+    <br>
+<% end %>

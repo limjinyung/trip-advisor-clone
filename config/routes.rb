@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   root 'listings#index'
 
-  resources :users
+  resources :users do
+    resources :listings 
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
   get 'signup', to: 'users#new', as: 'signup'
