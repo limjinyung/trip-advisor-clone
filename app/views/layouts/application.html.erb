@@ -5,9 +5,28 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# jquery cdn %>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+
+   <div id="flash" class="" >
+        <% flash.each do |key, value| %>
+            <% if key == "success" %>
+                <div class="text-dark text-center font-weight-bold bg-success flash <%= key %>"><%= value %></div>
+            <% elsif key == "error" %>
+                <div class="text-dark text-center font-weight-bold bg-danger flash <%= key %>"><%= value %></div>
+            <% else %>
+                <div class="text-dark text-center font-weight-bold bg-warning flash <%= key %>"><%= value %></div>
+            <% end %>
+        <% end %>
+    </div>
 
   <body>
     <%= yield %>
