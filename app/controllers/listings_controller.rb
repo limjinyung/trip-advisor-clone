@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
   def index
     @listings = Listing.all
+
+    @listings = @listings.where("lower(location_name) LIKE ?", "%#{params[:location_name].downcase}%") if params[:location_name]
   end
 
   def new
