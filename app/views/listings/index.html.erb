@@ -7,8 +7,10 @@
 <% end %>
 
 <h1>Listings</h1>
+<% if current_user.admin? %>
+    <%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
+<% end %>
 
-<%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
 <hr>
 
 <% @listings.each do |l| %>
