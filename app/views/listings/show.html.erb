@@ -1,9 +1,14 @@
 <h1><%= @listing.location_name %></h1>
 <hr>
 
-<h4>Address:</h4><h4><%= @listing.address %></h4>
+<h3>Details:</h3>
+<h4>Address: <%= @listing.address %></h4>
+<h4>Email: <%= @listing.email %></h4>
+<h4>Phone Number: <%= @listing.phone_number %></h4>
+<h4>Ratings: <%= @listing.ratings %></h4>
 <input type="hidden" id="address" value="<%= @listing.location_name %>">
 <h5><%= link_to "Back", root_path  %></h5>
+<button class="ta-button">Book Now</button>
 
 <div id="map" style="width:700px; height:500px;"></div>
 

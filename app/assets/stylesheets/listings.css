@@ -1,0 +1,14 @@
+.listingIndex{
+    display: inline-block;
+    margin-left: 10px;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.ta-button{
+    border-color: #078171;
+    border-radius: 3px;
+    background-color: #078171;
+    color: #fff;
+    margin-bottom: 20px;
+}
