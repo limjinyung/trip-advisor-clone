@@ -33,6 +33,8 @@ gem 'pg_search'
 #hide API key
 gem 'figaro'
 
+gem 'rails_12factor', group: :production
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
