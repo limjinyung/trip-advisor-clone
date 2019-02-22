@@ -71,6 +71,7 @@ RSpec.describe Listing, type: :model do
     #check custom model
     # context 'Destroy listing check' do
     #     it 'success: listing deleted successfully' do
+    #         p Listing.where(listing_id: 1)
     #         expect(Listing.destroy_listing(1)).to eq(true)
     #     end
 

@@ -7,8 +7,9 @@
 <% end %>
 
 <h1>Listings</h1>
-<% if current_user.admin? %>
-    <%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
+<% if current_user && current_user.admin? %>
+  <%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
+  <%= link_to 'Check Users', users_path %>
 <% end %>
 
 <hr>
