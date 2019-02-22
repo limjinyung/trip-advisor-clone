@@ -33,7 +33,11 @@ gem 'pg_search'
 #hide API key
 gem 'figaro'
 
+#for procfile
 gem 'rails_12factor', group: :production
+
+#to seed database
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
