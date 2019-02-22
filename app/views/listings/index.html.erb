@@ -1,4 +1,4 @@
-<img src="https://static.tacdn.com/img2/langs/en_MY/branding/rebrand/TA_logo_primary.svg">
+<img src="https://static.tacdn.com/img2/langs/en_MY/branding/rebrand/TA_logo_primary.svg", style='margin-top:-20px;'>
 
 <% if current_user %>
   Logged in as <%= current_user.username %>.
@@ -33,3 +33,7 @@
   <% end %>
 
 <% end %>
+
+<div class="flickr_pagination" >
+	<%= will_paginate @listings %>
+</div>

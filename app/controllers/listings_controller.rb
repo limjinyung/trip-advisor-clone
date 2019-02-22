@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
+
   def index
-    @listings = Listing.all
+    @listings = Listing.all.paginate(page: params[:page], per_page: 15)
     @listings = @listings.where("lower(location_name) LIKE ?", "%#{params[:location_name].downcase}%") if params[:location_name]
   end
 

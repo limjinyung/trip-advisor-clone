@@ -39,6 +39,9 @@ gem 'rails_12factor', group: :production
 #to seed database
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
+#paginate views
+gem 'will_paginate', '~> 3.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
