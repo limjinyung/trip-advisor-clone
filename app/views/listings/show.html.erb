@@ -1,21 +1,8 @@
-<h1><%= @listing.location_name %></h1>
-<hr>
-
-<h3>Details:</h3>
-<h4>Address: <%= @listing.address %></h4>
-<h4>Email: <%= @listing.email %></h4>
-<h4>Phone Number: <%= @listing.phone_number %></h4>
-<h4>Ratings: <%= @listing.ratings %></h4>
-<input type="hidden" id="address" value="<%= @listing.location_name %>">
-<h5><%= link_to "Back", root_path  %></h5>
-<button class="ta-button">Book Now</button>
-
-<div id="map" style="width:700px; height:500px;"></div>
-
 <script src='https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js'></script>
 <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoibGltankwMTE0IiwiYSI6ImNqcmZyeGVveTFmenM0OWxwb2pheGZ3MW8ifQ.ka2dxppOoMDqiLiqzhh96Q';
+$(document).ready(function(){
+    mapboxgl.accessToken = 'pk.eyJ1IjoibGltankwMTE0IiwiYSI6ImNqcmZyeGVveTFmenM0OWxwb2pheGZ3MW8ifQ.ka2dxppOoMDqiLiqzhh96Q';
 // eslint-disable-next-line no-undef
 getAddress = document.getElementById('address').value;
 var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
@@ -40,5 +27,21 @@ mapboxClient.geocoding.forwardGeocode({
                 .addTo(map);
         }
     });
+});
 
 </script>
+
+<h1><%= @listing.location_name %></h1>
+<hr>
+
+<h3>Details:</h3>
+<h4>Address: <%= @listing.address %></h4>
+<h4>Email: <%= @listing.email %></h4>
+<h4>Phone Number: <%= @listing.phone_number %></h4>
+<h4>Ratings: <%= @listing.ratings %></h4>
+<input type="hidden" id="address" value="<%= @listing.location_name %>">
+<h5><%= link_to "Back", root_path  %></h5>
+<button class="ta-button">Book Now</button>
+
+<div id="map" style="width:700px; height:500px;"></div>
+
