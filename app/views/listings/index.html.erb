@@ -6,21 +6,25 @@
   <%= link_to "Log In", login_path %>
 <% end %>
 
-<h1>Listings</h1>
-<% if current_user.admin? %>
+
+<% if current_user %>
+  <h1>Listings</h1>
+  <% if current_user && current_user.admin? %>
     <%= link_to "New Listings", new_user_listing_path(current_user.id) %> 
-<% end %>
+    <%= link_to 'Check Users', users_path %>
+  <% end %>
 
-<hr>
+  <hr>
 
-<%= form_with url: user_listings_path(current_user.id), method: "get", local: true, html: { id: "auto_search" } do |f| %>
-    <%= f.text_field :location_name, :autocomplete => :off, id: "search-field" , list: "list" %>
-    <datalist id="list"></datalist> 
-    <%= f.submit "Search" %>
-<% end %>
+  <%= form_with url: user_listings_path(current_user.id), method: "get", local: true, html: { id: "auto_search" } do |f| %>
+      <%= f.text_field :location_name, :autocomplete => :off, id: "search-field" , list: "list" %>
+      <datalist id="list"></datalist> 
+      <%= f.submit "Search" %>
+  <% end %>
 
-<% @listings.each do |l| %>
-    <%= l.address %>
-    <%= link_to "View Listings", user_listing_path(user_id: current_user.id, id: l.id) %>
-    <br>
+  <% @listings.each do |l| %>
+      <%= l.address %>
+      <%= link_to "View Listings", user_listing_path(user_id: current_user.id, id: l.id) %>
+      <br>
+  <% end %>
 <% end %>

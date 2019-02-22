@@ -6,8 +6,8 @@ RSpec.describe Listing, type: :model do
         Listing.delete_all
         ActiveRecord::Base.connection.reset_pk_sequence!(:listings);
         ActiveRecord::Base.connection.reset_pk_sequence!(:users);
-        Listing.create(location_name: 'Next Academy', address: 'AG-7, Glomac Damansara, Jalan Damansara, Tmn Tun Dr Ismail, 60000', phone_number: '0123358596', ratings: '2', user_id: 1)
         User.create(email: 'user@mail.com', password_digest: '123456', username: 'user')
+        Listing.create(location_name: 'Next Academy', email: "user@mail.com", address: 'AG-7, Glomac Damansara, Jalan Damansara, Tmn Tun Dr Ismail, 60000', phone_number: '0123358596', ratings: '2', user_id: 1)
     end
 
     #check all email possible errors
@@ -69,13 +69,13 @@ RSpec.describe Listing, type: :model do
     end
 
     #check custom model
-    # context 'Destroy listing check' do
-    #     it 'success: listing deleted successfully' do
-    #         expect(Listing.destroy_listing(1)).to eq(true)
-    #     end
+    context 'Destroy listing check' do
+        it 'success: listing deleted successfully' do
+            expect(Listing.destroy_listing(1)).to eq(true)
+        end
 
-    #     it 'error: listing does not exist' do
-    #         expect(Listing.destroy_listing(2)).to eq(false)
-    #     end
-    # end
+        it 'error: listing does not exist' do
+            expect(Listing.destroy_listing(2)).to eq(false)
+        end
+    end
 end
